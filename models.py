@@ -1,7 +1,8 @@
+import sys
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 db = SQLAlchemy()
-import sys
+
 
 def set_up_db(app):
     app.config.from_object('config')
@@ -82,8 +83,6 @@ class Venue(db.Model):
         return {'success': success}
 
 
-    # TODO: implement any missing fields, as a database migration using Flask-Migrate
-
 class Artist(db.Model):
     __tablename__ = 'Artist'
 
@@ -112,7 +111,6 @@ class Artist(db.Model):
         self.seeking_description = object_dict['seeking_description']
         self.website = object_dict['website']
         self.image_link = object_dict['image_link']
-
 
     def show_details(self):
         return {
@@ -143,11 +141,6 @@ class Artist(db.Model):
             db.session.close()
         return {'success': success}
 
-
-
-    # TODO: implement any missing fields, as a database migration using Flask-Migrate
-
-# TODO Implement Show and Artist models, and complete all model relationships and properties, as a database migration.
 
 class Show(db.Model):
     __tablename__ = 'Show'
@@ -200,11 +193,3 @@ class Show(db.Model):
         finally:
             db.session.close()
         return {'success':  success}
-
-
-
-
-
-#----------------------------------------------------------------------------#
-# Filters.
-#----------------------------------------------------------------------------#

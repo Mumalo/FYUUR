@@ -272,10 +272,6 @@ if not app.debug:
     app.logger.addHandler(file_handler)
     app.logger.info('errors')
 
-#----------------------------------------------------------------------------#
-# Launch.
-#----------------------------------------------------------------------------#
-
 # Default port:
 if __name__ == '__main__':
     app.run()
